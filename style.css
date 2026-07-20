@@ -504,6 +504,33 @@ body.distraction-free .article-quote {
   font-weight: 400;
 }
 
+.article-preface {
+  font-style: italic;
+  color: var(--grey-1);
+  border-top: 1px solid var(--grey-3);
+  border-bottom: 1px solid var(--grey-3);
+  padding: 28px 0;
+  margin: 8px 0 40px;
+}
+
+.article-preface p { margin: 0 0 16px; }
+.article-preface p:last-child { margin-bottom: 0; }
+
+.article-preface-label {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--grey-2);
+  margin-bottom: 14px;
+}
+
+body.distraction-free .article-preface {
+  border-color: var(--grey-3);
+}
+
 .article-quote {
   font-size: 32px;
   font-weight: 700;
