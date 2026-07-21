@@ -278,8 +278,15 @@ body.distraction-free .article-image-block,
 body.distraction-free .article-gallery,
 body.distraction-free .embed-wrap,
 body.distraction-free .embed-instagram,
-body.distraction-free .embed-map {
+body.distraction-free .embed-map,
+body.distraction-free .related-image {
   display: none !important;
+}
+
+body.distraction-free .related-category {
+  background: var(--grey-4) !important;
+  border-color: transparent;
+  color: var(--black) !important;
 }
 
 /* senza immagine, il testo si allinea al margine sinistro della pagina */
@@ -609,4 +616,77 @@ body.distraction-free .article-preface {
   color: var(--grey-1);
   text-transform: uppercase;
   letter-spacing: 0.4px;
+}
+
+/* --------------------------- RELATED ARTICLES --------------------------- */
+
+.related-articles {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px var(--gutter) 60px;
+  border-top: 1px solid var(--grey-3);
+}
+
+.related-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--grey-1);
+  margin: 0 0 28px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.related-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.related-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--grey-4);
+  border-radius: var(--radius);
+}
+
+.related-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.related-category {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--black);
+}
+
+.related-category.music { background: var(--color-music); }
+.related-category.cities { background: var(--color-cities); }
+.related-category.society { background: var(--color-society); }
+.related-category.ideas { background: var(--color-ideas); }
+
+.related-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  margin: 10px 0 0;
+}
+
+.related-card:hover .related-card-title { text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .related-grid { grid-template-columns: 1fr; gap: 24px; }
 }
