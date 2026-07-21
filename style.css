@@ -70,6 +70,11 @@ img { max-width: 100%; display: block; }
 
 .site-header .wrap {
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .logo {
