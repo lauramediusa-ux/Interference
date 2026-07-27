@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INTERFERENCE — Cultura contemporanea</title>
+<meta name="description" content="INTERFERENCE è una piattaforma media internazionale dedicata alla cultura contemporanea: musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale e nuovi movimenti.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="INTERFERENCE">
+<meta property="og:title" content="INTERFERENCE — Cultura contemporanea">
+<meta property="og:description" content="Musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale, nuovi movimenti.">
+<meta property="og:image" content="https://www.interferencemag.com/social/interference-cover.jpg">
+<meta property="og:url" content="https://www.interferencemag.com/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="INTERFERENCE — Cultura contemporanea">
+<meta name="twitter:description" content="Musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale, nuovi movimenti.">
+<meta name="twitter:image" content="https://www.interferencemag.com/social/interference-cover.jpg">
+
+<style>
+/* ==========================================================================
+   INTERFERENCE — Design System
+   Helvetica + pillole pastello. Minimale, veloce, senza elementi superflui.
+   ========================================================================== */
+
+:root {
+  /* Pastel category palette (badges, pills, cards) */
+  --color-music: #F0FF99;
+  --color-cities: #FFC2E8;
+  --color-society: #C2FFC6;
+  --color-ideas: #C2B9FF;
+
+  /* Saturated variants (homepage badges/pills + article quote accents) */
+  --accent-music: #D9FF00;
+  --accent-cities: #9485FF;
+  --accent-society: #2AFF8A;
+  --accent-ideas: #FF7300;
+
+  --black: #111111;
+  --white: #FFFFFF;
+  --grey-1: #6B6B6B;
+  --grey-2: #ADADAD;
+  --grey-3: #E5E5E5;
+  --grey-4: #F5F5F5;
+
+  --font: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
+
+  --max-width: 1600px;
+  --gutter: 40px;        /* page margin, per Figma layout guides (8 count, margin 40) */
+  --col-gutter: 20px;    /* grid gutter between counts, per Figma layout guides */
+  --page-bg: #E4E4E4;
+  --radius: 0px;
+}
+
+@media (max-width: 640px) {
+  :root { --gutter: 20px; }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--black);
+  background: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ------------------------------ HEADER ------------------------------ */
+
+.site-header {
+  padding: 44px var(--gutter) 48px;
+}
+
+.site-header .wrap {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo {
+  width: min(900px, 100% - 2px);
+}
+
+.logo a { display: block; }
+
+.logo svg { display: block; width: 100%; height: auto; }
+
+.logo img { display: block; width: 100%; height: auto; }
+
+.tagline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  margin-top: 18px;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--black);
+}
+
+@media (max-width: 860px) {
+  .tagline-row { font-size: 16px; gap: 18px; }
+}
+
+/* --------------------------- CATEGORY FILTER --------------------------- */
+
+.filters {
+  max-width: var(--max-width);
+  margin: 50px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 64px var(--gutter) 28px;
+}
+
+.dfree-toggle { margin-left: auto; }
+
+.filter-pill {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--grey-4);
+  color: var(--black);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.filter-pill:hover { transform: translateY(-1px); }
+
+.filter-pill[data-cat="all"] { background: var(--white); color: var(--black); }
+.filter-pill[data-cat="all"].active { background: var(--black); color: var(--white); }
+
+.filter-pill[data-cat="music"] { background: var(--accent-music); }
+.filter-pill[data-cat="cities"] { background: var(--accent-cities); }
+.filter-pill[data-cat="society"] { background: var(--accent-society); }
+.filter-pill[data-cat="ideas"] { background: var(--accent-ideas); }
+
+/* Distraction-free toggle (distinct from category pills) */
+
+.dfree-toggle {
+  background: var(--grey-4);
+  color: var(--black);
+}
+
+.dfree-toggle.active {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* mobile: category pills all on one line (sharing the width equally);
+   distraction free below them, full width */
+@media (max-width: 640px) {
+  .filters {
+    flex-wrap: wrap;
+    row-gap: 12px;
+    gap: 8px;
+  }
+
+  .filter-pill:not(.dfree-toggle) {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .dfree-toggle {
+    order: 10;
+    flex-basis: 100%;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* ------------------------------ GRID (4-column card grid, 8-count layout) ------------------------------ */
+
+.grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* rows alternate: fixed 200px band for pictures, flexible band for text
+     (sized by the tallest text in that row) — the pattern cycles automatically */
+  grid-auto-rows: 200px auto;
+  row-gap: 0;
+  column-gap: var(--col-gutter);
+  padding: 0 var(--gutter) 40px;
+  position: relative;
+}
+
+/* ------------------------------ CARD (each spans 2 of the 8 counts) ------------------------------ */
+/* each card spans a picture band + a text band, and inherits the grid's own
+   row tracks via subgrid, so all texts in the same row share the same band height */
+
+.card {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  grid-row: span 2;
+  display: grid;
+  grid-template-rows: subgrid;
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+/* full-height overlay: one continuous vertical line per column edge, running from the
+   top of the grid straight down to the bottom, unbroken by row-gap between rows.
+   Sits above the cards (z-index higher than .card) so the lines stay in front
+   of every picture. */
+.grid-lines {
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: var(--col-gutter);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.grid-lines span {
+  border-left: 1px solid var(--black);
+  border-right: 1px solid var(--black);
+}
+
+/* horizontal lines at every row boundary (top + bottom of each picture band),
+   drawn by script.js from the measured row positions since text bands are
+   flexible. They ignore the gutter (full grid width) and sit above the pictures. */
+.row-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.row-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--black);
+}
+
+@media (max-width: 1024px) {
+  .row-lines { display: none; }
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-lines { display: none; }
+  .card { border-left: 1px solid var(--black); border-right: 1px solid var(--black); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; row-gap: 32px; }
+  .card {
+    border-left: none;
+    border-right: none;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--black);
+  }
+  .card:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+/* picture fills its fixed 200px band exactly; the text band below is flexible */
+.card-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--grey-4);
+  border-radius: var(--radius);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .card-image img { transform: scale(1.04); }
+
+.card-content {
+  padding: 16px 20px 22px 20px;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .card-content { padding-left: 0; padding-right: 0; }
+}
+
+.card-category {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 6px 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--black);
+}
+
+.card[data-cat="music"] .card-category { background: var(--accent-music); }
+.card[data-cat="cities"] .card-category { background: var(--accent-cities); }
+.card[data-cat="society"] .card-category { background: var(--accent-society); }
+.card[data-cat="ideas"] .card-category { background: var(--accent-ideas); }
+
+.card-date {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-2);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin: 8px 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.card-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--grey-1);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--grey-1);
+}
+
+.card-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--grey-3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ------------------------- DISTRACTION-FREE MODE ------------------------- */
+
+body.distraction-free .card-image,
+body.distraction-free .card-avatar,
+body.distraction-free .article-hero,
+body.distraction-free .article-image-block,
+body.distraction-free .article-gallery,
+body.distraction-free .embed-wrap,
+body.distraction-free .embed-instagram,
+body.distraction-free .embed-map,
+body.distraction-free .related-image {
+  display: none !important;
+}
+
+body.distraction-free .related-category {
+  background: var(--grey-4) !important;
+  border-color: transparent;
+  color: var(--black) !important;
+}
+
+body.distraction-free .card-category,
+body.distraction-free .article-category {
+  background: var(--grey-4) !important;
+  border-color: transparent;
+  color: var(--black) !important;
+}
+
+body.distraction-free .card-category {
+  position: static;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+body.distraction-free .filter-pill:not([data-cat="all"]):not(.dfree-toggle) {
+  background: transparent;
+  border-color: var(--black);
+  color: var(--black);
+}
+
+body.distraction-free .filter-pill:not([data-cat="all"]):not(.dfree-toggle).active {
+  background: var(--grey-4);
+}
+
+body.distraction-free .article-quote {
+  border-left-color: var(--black) !important;
+}
+
+/* --------------------------- PAGINATION --------------------------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 20px var(--gutter) 60px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--grey-4);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.page-num.active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.page-btn {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--grey-4);
+}
+
+.page-btn.disabled {
+  color: var(--grey-2);
+  pointer-events: none;
+}
+
+/* ------------------------------ FOOTER ------------------------------ */
+
+.site-footer {
+  border-top: 1px solid var(--grey-3);
+  padding: 30px var(--gutter);
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--grey-1);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================ ARTICLE PAGE ============================ */
+
+.article-back {
+  display: inline-block;
+  padding: 16px var(--gutter) 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.article-hero {
+  width: 100%;
+  max-height: 640px;
+  overflow: hidden;
+  margin-top: 14px;
+  border-radius: var(--radius);
+}
+
+.article-hero img { width: 100%; height: 100%; object-fit: cover; }
+
+.article-head {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 36px var(--gutter) 10px;
+}
+
+.article-category {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--black);
+  margin-bottom: 18px;
+}
+
+.article-category.music { background: var(--color-music); }
+.article-category.cities { background: var(--color-cities); }
+.article-category.society { background: var(--color-society); }
+.article-category.ideas { background: var(--color-ideas); }
+
+.article-title {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 0 0 16px;
+}
+
+@media (max-width: 620px) {
+  .article-title { font-size: 32px; }
+}
+
+.article-subtitle {
+  font-size: 19px;
+  color: var(--grey-1);
+  line-height: 1.4;
+  margin: 0 0 22px;
+  font-weight: 400;
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-top: 1px solid var(--grey-3);
+  border-bottom: 1px solid var(--grey-3);
+  padding: 14px 0;
+  margin-bottom: 10px;
+}
+
+.article-author {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.article-date {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--grey-1);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Share bar */
+
+.share-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.share-btn {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--grey-4);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.share-btn svg { width: 17px; height: 17px; display: block; }
+
+.share-btn:hover { background: var(--black); color: var(--white); }
+
+/* Article body */
+
+.article-body {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 10px var(--gutter) 60px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.article-body p { margin: 0 0 24px; }
+
+.article-body .lead {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.article-preface {
+  font-style: italic;
+  color: var(--grey-1);
+  border-top: 1px solid var(--grey-3);
+  border-bottom: 1px solid var(--grey-3);
+  padding: 28px 0;
+  margin: 8px 0 40px;
+}
+
+.article-preface p { margin: 0 0 16px; }
+.article-preface p:last-child { margin-bottom: 0; }
+
+.article-preface-label {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--grey-2);
+  margin-bottom: 14px;
+}
+
+body.distraction-free .article-preface {
+  border-color: var(--grey-3);
+}
+
+.article-quote {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin: 46px 0;
+  padding-left: 24px;
+  border-left: 6px solid var(--accent, var(--black));
+}
+
+.article-quote cite {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grey-1);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.article-image-block { margin: 40px 0; }
+.article-image-block img { width: 100%; border-radius: var(--radius); }
+.article-image-block .caption {
+  font-size: 13px;
+  color: var(--grey-1);
+  margin-top: 8px;
+}
+
+.article-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 40px 0;
+}
+
+@media (max-width: 620px) {
+  .article-gallery { grid-template-columns: 1fr; }
+}
+
+.embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin: 40px 0;
+  background: var(--grey-4);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.embed-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+.embed-instagram, .embed-map {
+  margin: 40px 0;
+}
+
+.embed-instagram iframe { width: 100%; min-height: 600px; border: 1px solid var(--grey-3); border-radius: var(--radius); }
+
+.embed-map iframe { width: 100%; height: 420px; border: 0; border-radius: var(--radius); filter: grayscale(15%); }
+
+.article-tags {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 60px;
+  font-size: 12px;
+  color: var(--grey-1);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* --------------------------- RELATED ARTICLES --------------------------- */
+
+.related-articles {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px var(--gutter) 60px;
+  border-top: 1px solid var(--grey-3);
+}
+
+.related-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--grey-1);
+  margin: 0 0 28px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.related-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.related-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--grey-4);
+  border-radius: var(--radius);
+}
+
+.related-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.related-category {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 5px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--black);
+}
+
+.related-category.music { background: var(--color-music); }
+.related-category.cities { background: var(--color-cities); }
+.related-category.society { background: var(--color-society); }
+.related-category.ideas { background: var(--color-ideas); }
+
+.related-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  margin: 10px 0 0;
+}
+
+.related-card:hover .related-card-title { text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .related-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="logo"><a href="/"><img src="logo.png" alt="INTERFERENCES"></a></div>
+  </div>
+  <div class="wrap tagline-row">
+    <span>Culture Indipendenti</span>
+    <span>独立文化</span>
+    <span>Independent Cultures</span>
+    <span>Независимые культуры</span>
+  </div>
+</header>
+
+<nav class="filters">
+  <button class="filter-pill active" data-cat="all">See all</button>
+  <button class="filter-pill" data-cat="music">Music</button>
+  <button class="filter-pill" data-cat="cities">Cities</button>
+  <button class="filter-pill" data-cat="society">Society</button>
+  <button class="filter-pill" data-cat="ideas">Ideas</button>
+  <button class="filter-pill dfree-toggle" id="dfree-toggle">distraction free</button>
+</nav>
+
+<main class="grid">
+  <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <a class="card" data-cat="ideas" href="articles/ideas-demoralizzazione-arma-di-guerra.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="articles/demoralizzazione-italia-1963.jpg" alt="LA DEMORALIZZAZIONE COME ARMA DI GUERRA" loading="lazy">
+      </div>
+      <span class="card-category">Ideas</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">20 Luglio 2026</span>
+      <h2 class="card-title">LA DEMORALIZZAZIONE COME ARMA DI GUERRA</h2>
+      <p class="card-desc">La guerra invisibile per il controllo della cultura.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=tommaso-dapri" alt=""></span>
+        Tommaso Dapri
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-festival-elettronica/900/700" alt="Le nuove frontiere del suono: dentro i festival che reinventano la scena elettronica europea" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">8 Luglio 2026</span>
+      <h2 class="card-title">Le nuove frontiere del suono: dentro i festival che reinventano la scena elettronica europea</h2>
+      <p class="card-desc">Spazi industriali riconquistati, comunità temporanee e nuove estetiche del suono.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=chiara-ferretti" alt=""></span>
+        Chiara Ferretti
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="cities" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/cities-torino-rigenerazione/900/700" alt="Rigenerazione urbana a Torino: come un'ex fabbrica è diventata laboratorio di comunità" loading="lazy">
+      </div>
+      <span class="card-category">Cities</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">6 Luglio 2026</span>
+      <h2 class="card-title">Rigenerazione urbana a Torino: come un'ex fabbrica è diventata laboratorio di comunità</h2>
+      <p class="card-desc">Un caso studio di architettura sociale nato da un'occupazione, oggi regolarizzata.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=marco-divella" alt=""></span>
+        Marco Divella
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="society" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/society-controculture-2026/900/700" alt="Controculture 2026: chi sono i nuovi collettivi che riscrivono le regole" loading="lazy">
+      </div>
+      <span class="card-category">Society</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">4 Luglio 2026</span>
+      <h2 class="card-title">Controculture 2026: chi sono i nuovi collettivi che riscrivono le regole</h2>
+      <p class="card-desc">Tra spazi autogestiti, nuovi linguaggi visivi e comunità digitali strutturate.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=aisha-kone" alt=""></span>
+        Aisha Kone
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="ideas" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/ideas-filosofia-algoritmo/900/700" alt="Filosofia e algoritmo: può un'intelligenza artificiale avere un'estetica?" loading="lazy">
+      </div>
+      <span class="card-category">Ideas</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">2 Luglio 2026</span>
+      <h2 class="card-title">Filosofia e algoritmo: può un'intelligenza artificiale avere un'estetica?</h2>
+      <p class="card-desc">Un percorso tra teoria del gusto, machine learning e nuovi movimenti del pensiero.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=leonardo-sacco" alt=""></span>
+        Leonardo Sacco
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-architetture-sonore/900/700" alt="Architetture sonore: quando la musica diventa spazio pubblico" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">29 Giugno 2026</span>
+      <h2 class="card-title">Architetture sonore: quando la musica diventa spazio pubblico</h2>
+      <p class="card-desc">Installazioni sonore permanenti e il nuovo dialogo tra composizione e architettura urbana.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=chiara-ferretti" alt=""></span>
+        Chiara Ferretti
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="cities" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/cities-berlino-lisbona-napoli/900/700" alt="Berlino, Lisbona, Napoli: tre città, tre modelli di rigenerazione dal basso" loading="lazy">
+      </div>
+      <span class="card-category">Cities</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">25 Giugno 2026</span>
+      <h2 class="card-title">Berlino, Lisbona, Napoli: tre città, tre modelli di rigenerazione dal basso</h2>
+      <p class="card-desc">Un confronto tra approcci diversi alla cultura come motore di trasformazione urbana.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=marco-divella" alt=""></span>
+        Marco Divella
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-radio-indipendenti-la-rinascita-di-un-formato-che-sembrava-m/900/700" alt="Radio indipendenti: la rinascita di un formato che sembrava morto" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">21 Giugno 2026</span>
+      <h2 class="card-title">Radio indipendenti: la rinascita di un formato che sembrava morto</h2>
+      <p class="card-desc">Decine di piccole radio indipendenti stanno ricostruendo le scene musicali locali, una trasmissione alla volta.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=chiara-ferretti" alt=""></span>
+        Chiara Ferretti
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-il-ritorno-del-vinile-nei-quartieri-periferici/900/700" alt="Il ritorno del vinile nei quartieri periferici" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">18 Giugno 2026</span>
+      <h2 class="card-title">Il ritorno del vinile nei quartieri periferici</h2>
+      <p class="card-desc">Negozi di dischi indipendenti aprono lontano dai centri storici, seguendo il pubblico più che il turismo.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=nadia-colombo" alt=""></span>
+        Nadia Colombo
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-cori-popolari-la-coralita-come-pratica-politica/900/700" alt="Cori popolari: la coralità come pratica politica" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">15 Giugno 2026</span>
+      <h2 class="card-title">Cori popolari: la coralità come pratica politica</h2>
+      <p class="card-desc">In diverse città europee i cori amatoriali tornano a essere spazi di aggregazione intergenerazionale.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=yusuf-demir" alt=""></span>
+        Yusuf Demir
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-studi-condivisi-il-nuovo-modello-economico-dei-musicisti-eme/900/700" alt="Studi condivisi: il nuovo modello economico dei musicisti emergenti" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">12 Giugno 2026</span>
+      <h2 class="card-title">Studi condivisi: il nuovo modello economico dei musicisti emergenti</h2>
+      <p class="card-desc">Sale prova e studi di registrazione gestiti in cooperativa riducono i costi d'ingresso per una nuova generazione di artisti.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=chiara-ferretti" alt=""></span>
+        Chiara Ferretti
+      </div>
+    </div>
+  </a>
+  <a class="card" data-cat="music" href="articles/template-articolo.html">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="https://picsum.photos/seed/music-musica-e-migrazione-le-scene-sonore-delle-seconde-generazion/900/700" alt="Musica e migrazione: le scene sonore delle seconde generazioni" loading="lazy">
+      </div>
+      <span class="card-category">Music</span>
+    </div>
+    <div class="card-content">
+      <span class="card-date">9 Giugno 2026</span>
+      <h2 class="card-title">Musica e migrazione: le scene sonore delle seconde generazioni</h2>
+      <p class="card-desc">Un viaggio tra i suoni che nascono all'incrocio tra tradizioni familiari e cultura urbana europea.</p>
+      <div class="card-meta">
+        <span class="card-avatar"><img src="https://i.pravatar.cc/64?u=nadia-colombo" alt=""></span>
+        Nadia Colombo
+      </div>
+    </div>
+  </a>
+</main>
+
+<nav class="pagination">
+  <span class="page-btn disabled">← Precedente</span>
+  <div class="page-numbers"><a class="page-num active" href="index.html">1</a><a class="page-num" href="page-2.html">2</a><a class="page-num" href="page-3.html">3</a><a class="page-num" href="page-4.html">4</a><a class="page-num" href="page-5.html">5</a></div>
+  <a class="page-btn" href="page-2.html">Successivo →</a>
+</nav>
+
+<footer class="site-footer">
+  <div>© 2026 Interference Media</div>
+  <div>Musica — Città — Società — Idee — Pagina 1 di 5</div>
+</footer>
+
+<script>
+// ============================================================
+// INTERFERENCE — script condiviso (homepage + articoli)
+// ============================================================
+
+var DFREE_KEY = 'interference-distraction-free';
+
+// --- Modalità distraction free (applicata su ogni pagina del sito) --------
+(function () {
+  var enabled = localStorage.getItem(DFREE_KEY) === '1';
+  if (enabled) document.documentElement.classList.add('dfree-pending');
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (enabled) document.body.classList.add('distraction-free');
+    document.documentElement.classList.remove('dfree-pending');
+
+    var toggle = document.getElementById('dfree-toggle');
+    if (toggle) {
+      if (enabled) toggle.classList.add('active');
+      toggle.addEventListener('click', function () {
+        var isOn = document.body.classList.toggle('distraction-free');
+        toggle.classList.toggle('active', isOn);
+        localStorage.setItem(DFREE_KEY, isOn ? '1' : '0');
+      });
+    }
+  });
+})();
+
+// --- Filtro categorie in homepage -----------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
+  var pills = document.querySelectorAll('.filter-pill[data-cat]');
+  var cards = document.querySelectorAll('.card');
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+
+      var cat = pill.getAttribute('data-cat');
+      cards.forEach(function (card) {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      drawRowLines();
+    });
+  });
+});
+
+// --- Linee orizzontali ai confini di ogni riga ------------------------------
+// La fascia testo è flessibile, quindi le posizioni si misurano dal DOM:
+// una linea sopra e una sotto ogni fascia-immagini, a tutta larghezza.
+var drawRowLines;
+(function () {
+  var raf = null;
+  drawRowLines = function () {
+    var grid = document.querySelector('.grid');
+    if (!grid) return;
+    var overlay = grid.querySelector('.row-lines');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'row-lines';
+      overlay.setAttribute('aria-hidden', 'true');
+      grid.appendChild(overlay);
+    }
+    overlay.innerHTML = '';
+    if (window.innerWidth <= 1024) return;
+    var overlayRect = overlay.getBoundingClientRect();
+    var ys = [];
+    grid.querySelectorAll('.card-media').forEach(function (m) {
+      if (m.offsetParent === null) return;
+      var r = m.getBoundingClientRect();
+      [r.top - overlayRect.top, r.bottom - overlayRect.top].forEach(function (y) {
+        var dup = ys.some(function (v) { return Math.abs(v - y) < 0.5; });
+        if (!dup) ys.push(y);
+      });
+    });
+    ys.forEach(function (y) {
+      var line = document.createElement('div');
+      line.className = 'row-line';
+      line.style.top = y + 'px';
+      line.style.marginTop = '-0.5px';
+      overlay.appendChild(line);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', drawRowLines);
+  window.addEventListener('load', drawRowLines);
+  window.addEventListener('resize', function () {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(drawRowLines);
+  });
+})();
+
+// --- Condivisione articolo --------------------------------------------------
+function shareArticle(platform) {
+  var url = window.location.href;
+  var title = document.title;
+  var descTag = document.querySelector('meta[name="description"]');
+  var desc = descTag ? descTag.getAttribute('content') : '';
+
+  var targets = {
+    whatsapp: 'https://api.whatsapp.com/send?text=' + encodeURIComponent(title + ' — ' + url),
+    telegram: 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title),
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url),
+    twitter: 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title)
+  };
+
+  if (platform === 'native' && navigator.share) {
+    navigator.share({ title: title, text: desc, url: url }).catch(function () {});
+    return;
+  }
+
+  if (platform === 'copy') {
+    navigator.clipboard.writeText(url).then(function () {
+      var btn = document.getElementById('copy-btn');
+      if (btn) {
+        var original = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        btn.setAttribute('title', 'Link copiato');
+        setTimeout(function () {
+          btn.innerHTML = original;
+          btn.setAttribute('title', 'Copia link');
+        }, 1800);
+      }
+    });
+    return;
+  }
+
+  if (targets[platform]) {
+    window.open(targets[platform], '_blank', 'noopener,noreferrer,width=600,height=600');
+  }
+}
+
+</script>
+</body>
+</html>
