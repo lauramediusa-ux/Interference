@@ -43,9 +43,55 @@ document.addEventListener('DOMContentLoaded', function () {
           card.style.display = 'none';
         }
       });
+      drawRowLines();
     });
   });
 });
+
+// --- Linee orizzontali ai confini di ogni riga ------------------------------
+// La fascia testo è flessibile, quindi le posizioni si misurano dal DOM:
+// una linea sopra e una sotto ogni fascia-immagini, a tutta larghezza.
+var drawRowLines;
+(function () {
+  var raf = null;
+  drawRowLines = function () {
+    var grid = document.querySelector('.grid');
+    if (!grid) return;
+    var overlay = grid.querySelector('.row-lines');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'row-lines';
+      overlay.setAttribute('aria-hidden', 'true');
+      grid.appendChild(overlay);
+    }
+    overlay.innerHTML = '';
+    if (window.innerWidth <= 1024) return;
+    var overlayRect = overlay.getBoundingClientRect();
+    var ys = [];
+    grid.querySelectorAll('.card-media').forEach(function (m) {
+      if (m.offsetParent === null) return;
+      var r = m.getBoundingClientRect();
+      [r.top - overlayRect.top, r.bottom - overlayRect.top].forEach(function (y) {
+        var dup = ys.some(function (v) { return Math.abs(v - y) < 0.5; });
+        if (!dup) ys.push(y);
+      });
+    });
+    ys.forEach(function (y) {
+      var line = document.createElement('div');
+      line.className = 'row-line';
+      line.style.top = y + 'px';
+      line.style.marginTop = '-0.5px';
+      overlay.appendChild(line);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', drawRowLines);
+  window.addEventListener('load', drawRowLines);
+  window.addEventListener('resize', function () {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(drawRowLines);
+  });
+})();
 
 // --- Condivisione articolo --------------------------------------------------
 function shareArticle(platform) {
