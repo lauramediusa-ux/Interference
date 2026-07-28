@@ -65,7 +65,6 @@ var drawRowLines;
       grid.appendChild(overlay);
     }
     overlay.innerHTML = '';
-    if (window.innerWidth <= 1024) return;
     var overlayRect = overlay.getBoundingClientRect();
     var ys = [];
     grid.querySelectorAll('.card-media').forEach(function (m) {

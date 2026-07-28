@@ -256,25 +256,18 @@ img { max-width: 100%; display: block; }
   background: var(--black);
 }
 
-@media (max-width: 1024px) {
-  .row-lines { display: none; }
-}
-
+/* tablet: same grid system, 2 columns — vertical lines follow (2 columns × 2 edges) */
 @media (max-width: 1024px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
-  .grid-lines { display: none; }
-  .card { border-left: 1px solid var(--black); border-right: 1px solid var(--black); }
+  .grid-lines { grid-template-columns: repeat(2, 1fr); }
+  .grid-lines span:nth-child(n+3) { display: none; }
 }
 
+/* mobile: same grid system, single column */
 @media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; row-gap: 32px; }
-  .card {
-    border-left: none;
-    border-right: none;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--black);
-  }
-  .card:last-child { border-bottom: none; padding-bottom: 0; }
+  .grid { grid-template-columns: 1fr; }
+  .grid-lines { grid-template-columns: 1fr; }
+  .grid-lines span:nth-child(n+2) { display: none; }
 }
 
 /* picture fills its fixed 200px band exactly; the text band below is flexible */
@@ -300,9 +293,6 @@ img { max-width: 100%; display: block; }
   min-width: 0;
 }
 
-@media (max-width: 640px) {
-  .card-content { padding-left: 0; padding-right: 0; }
-}
 
 .card-category {
   position: absolute;
