@@ -101,6 +101,21 @@ img { max-width: 100%; display: block; }
   .tagline-row { font-size: 16px; gap: 18px; }
 }
 
+/* mobile: tagline always on a single line, whole header section pulled up */
+@media (max-width: 640px) {
+  .tagline-row {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-size: 11px;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .site-header { padding-top: 24px; padding-bottom: 0; }
+
+  .filters { margin-top: 40px; padding-top: 24px; }
+}
+
 /* --------------------------- CATEGORY FILTER --------------------------- */
 
 .filters {
