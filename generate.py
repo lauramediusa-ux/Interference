@@ -198,7 +198,7 @@ ARTICLE_TEMPLATE = '''<!DOCTYPE html>
 
 <header class="site-header">
   <div class="wrap">
-    <div class="logo"><a href="../index.html">interference</a></div>
+    <div class="logo logo-small"><a href="../index.html"><img src="../logo.png" alt="INTERFERENCES"></a></div>
     <button class="filter-pill dfree-toggle" id="dfree-toggle">distraction free</button>
   </div>
 </header>
