@@ -160,6 +160,12 @@ REAL_ARTICLES = [
      "category": "ideas", "author": "Tommaso Dapri", "date": date(2026, 7, 20),
      "href": "articles/ideas-demoralizzazione-arma-di-guerra.html",
      "image": "articles/demoralizzazione-italia-1963.jpg"},
+    {"slug": "society-tempio-futuro-perduto",
+     "title": "LA RIVOLUZIONE DEL CLUBBING ITALIANO: IL TEMPIO DI MILANO",
+     "desc": "Come un'ex officina tranviaria abbandonata è diventata una delle comunità culturali indipendenti più estese d'Italia.",
+     "category": "society", "author": "Thomas Anderson", "date": date(2026, 7, 28),
+     "href": "articles/society-tempio-futuro-perduto.html",
+     "image": "articles/tempio-1.jpg"},
 ]
 
 ALL = EXISTING + new_data + REAL_ARTICLES

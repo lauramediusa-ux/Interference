@@ -603,6 +603,14 @@ body.distraction-free .article-quote {
 
 .article-body p { margin: 0 0 24px; }
 
+.article-body h2 {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 52px 0 20px;
+}
+
 .article-body .lead {
   font-size: 22px;
   font-weight: 400;
