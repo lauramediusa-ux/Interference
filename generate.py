@@ -348,22 +348,22 @@ PAGE_TPL = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INTERFERENCE — Cultura contemporanea{page_suffix}</title>
-<meta name="description" content="INTERFERENCE è una piattaforma media internazionale dedicata alla cultura contemporanea: musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale e nuovi movimenti.">
+<title>INTERFERENCES — Culture Indipendenti{page_suffix}</title>
+<meta name="description" content="INTERFERENCES è una piattaforma media internazionale dedicata alle culture indipendenti: musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale e nuovi movimenti.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="INTERFERENCE">
-<meta property="og:title" content="INTERFERENCE — Cultura contemporanea">
+<meta property="og:site_name" content="INTERFERENCES">
+<meta property="og:title" content="INTERFERENCES — Culture Indipendenti">
 <meta property="og:description" content="Musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale, nuovi movimenti.">
-<meta property="og:image" content="https://www.interferencemag.com/social/interference-cover.jpg">
-<meta property="og:url" content="https://www.interferencemag.com/{page_url}">
+<meta property="og:image" content="https://www.interferencesmag.com/social/interference-cover.jpg">
+<meta property="og:url" content="https://www.interferencesmag.com/{page_url}">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="INTERFERENCE — Cultura contemporanea">
+<meta name="twitter:title" content="INTERFERENCES — Culture Indipendenti">
 <meta name="twitter:description" content="Musica, controculture, rigenerazione urbana, arte, filosofia, politica culturale, comunità, festival, architettura sociale, nuovi movimenti.">
-<meta name="twitter:image" content="https://www.interferencemag.com/social/interference-cover.jpg">
+<meta name="twitter:image" content="https://www.interferencesmag.com/social/interference-cover.jpg">
 
 <link rel="stylesheet" href="style.css">
 </head>
