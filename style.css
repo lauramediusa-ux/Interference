@@ -101,21 +101,6 @@ img { max-width: 100%; display: block; }
   .tagline-row { font-size: 16px; gap: 18px; }
 }
 
-/* mobile: tagline always on a single line, whole header section pulled up */
-@media (max-width: 640px) {
-  .tagline-row {
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    font-size: 11px;
-    gap: 10px;
-    margin-top: 12px;
-  }
-
-  .site-header { padding-top: 24px; padding-bottom: 0; }
-
-  .filters { margin-top: 40px; padding-top: 24px; }
-}
-
 /* --------------------------- CATEGORY FILTER --------------------------- */
 
 .filters {
@@ -796,4 +781,20 @@ body.distraction-free .article-preface {
 
 @media (max-width: 860px) {
   .related-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ==================== MOBILE HEADER OVERRIDES (keep last in file) ==================== */
+/* tagline always on one single line (font scales with screen width), header + grid pulled up */
+@media (max-width: 860px) {
+  .tagline-row {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-size: clamp(9px, 2.2vw, 14px);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .site-header { padding-top: 20px; padding-bottom: 0; }
+
+  .filters { margin: 0 auto 0; padding-top: 16px; }
 }
